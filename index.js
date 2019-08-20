@@ -80,13 +80,32 @@ var justWait = function(){
     }
     setTimeout(justWait, 10);
   }else{
-    console.log("------ SUMMARY -------");
-    console.log("host","protocol","path","duration");
-    for(var i in data){
-      var url = new URL(data[i].url);
-      console.log(url.host,url.protocol,url.pathname,data[i].duration);
-    }
-    console.log("total duration",(((new Date).getTime()-startedAt)/1000).toFixed(3));
+    showSummary();
+    process.exit();
   }
 };
+
+var showSummary = function(){
+  console.log("------ SUMMARY -------");
+  console.log("host","protocol","path","duration");
+  for(var i in data){
+    var url = new URL(data[i].url);
+    console.log(url.host,url.protocol,url.pathname,data[i].duration);
+  }
+  console.log("total duration",(((new Date).getTime()-startedAt)/1000).toFixed(3));
+};
+
+const readline = require('readline');
+readline.emitKeypressEvents(process.stdin);
+process.stdin.setRawMode(true);
+process.stdin.on('keypress', (str, key) => {
+  if (key.ctrl && key.name === 'c') {
+    process.exit();
+  } else {
+    if (key.name === 's') {
+      showSummary();
+    }
+  }
+});
+console.log('Press "s" to see summary report...');
 startTest();
