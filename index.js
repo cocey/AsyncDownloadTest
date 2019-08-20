@@ -62,7 +62,6 @@ var startTest = async function(){
 
 
 var startedAt = (new Date).getTime();
-var lastT = -1;
 
 //wait until all urls downloaded
 var justWait = function(){
@@ -74,10 +73,7 @@ var justWait = function(){
   }
   var totalTime = (((new Date).getTime()-startedAt)/1000);
   if(t<urls.length){
-    if(lastT!=t){
-      lastT = t;
-      console.log(t,"of",urls.length);
-    }
+    process.stdout.write("\t"+t.toString()+" of "+urls.length.toString()+"\r");
     setTimeout(justWait, 10);
   }else{
     showSummary();
