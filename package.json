@@ -1,0 +1,30 @@
+{
+  "name": "asyncdownloadtest",
+  "version": "1.0.0",
+  "description": "Simple console application that test download content from urls simultaneously",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cocey/AsyncDownloadTest.git"
+  },
+  "keywords": [
+    "async",
+    "simultaneous",
+    "download",
+    "test"
+  ],
+  "author": "Cem Yıldız",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cocey/AsyncDownloadTest/issues"
+  },
+  "homepage": "https://github.com/cocey/AsyncDownloadTest#readme",
+  "dependencies": {
+    "async": "^3.1.0",
+    "request": "^2.88.0"
+  }
+}
